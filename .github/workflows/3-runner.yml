@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: echo windows os
         shell: bash
-        run: echo "The runner is, $Runner_OS"
+        run: echo "The runner is, ${{github.run_number}}"

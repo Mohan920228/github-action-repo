@@ -1,7 +1,11 @@
 name: 06-context
+run-name: MY custom run - ${{ inputs.debug }}
 on:
-    push:
     workflow_dispatch: 
+        inputs:
+          debug:
+            default: false
+            type: boolean
 jobs:
     context:
         runs-on: ubuntu-latest

@@ -15,7 +15,6 @@ jobs:
             with:
                 node-version: '20.x'
           - name: install dependencies
-            
+            working-directory: 4-custom-action/react-app
             run: |
-                cd /home/runner/work/github-action-repo/github-action-repo
                 npm ci

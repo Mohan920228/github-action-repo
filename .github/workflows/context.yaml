@@ -1,12 +1,15 @@
 name: 06-context
-run-name: MY custom run - ${{ inputs.debug }}
 on:
+    push:
     workflow_dispatch: 
+<<<<<<< HEAD
         inputs:
           debug:
             default: false
             required: true
             type: boolean
+=======
+>>>>>>> parent of 7f4c60b (adding input)
 jobs:
     context:
         runs-on: ubuntu-latest

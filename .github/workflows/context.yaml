@@ -1,0 +1,25 @@
+name: 06-context
+run-name: MY custom run - ${{ inputs.debug }}
+on:
+    workflow_dispatch: 
+        inputs:
+          debug:
+            default: false
+            type: boolean
+jobs:
+    context:
+        runs-on: ubuntu-latest
+        steps:
+            - name: printing meta data
+              run: |
+                echo "Event name: ${{github.event_name}}"
+                echo "Ref: ${{github.ref}}"
+                echo "SHA: ${{github.sha}}"
+                echo "Actor: ${{github.actor}}"
+                echo "Workflow: ${{github.workflow}}"
+                echo "RUNID: ${{github.run_id}}"
+                echo "Run_id: ${{github.run_id}}"
+                echo "Runner: ${{github.run_number}}"
+            - name: retrive variable
+              run : |
+                    echo "variable values ${{ vars.MY_VAR }}"

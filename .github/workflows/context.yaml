@@ -5,6 +5,7 @@ on:
         inputs:
           debug:
             default: false
+            required: true
             type: boolean
 jobs:
     context:

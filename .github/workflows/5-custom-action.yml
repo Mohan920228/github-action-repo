@@ -15,5 +15,5 @@ jobs:
           - name: install dependencies
             
             run: |
-                cd /home/ubuntu/github-action/1-exercies/4-custom-action/react-app
+                cd cd 1-exercies/4-custom-action/react-app
                 npm ci

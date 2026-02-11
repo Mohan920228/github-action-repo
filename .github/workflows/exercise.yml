@@ -2,12 +2,12 @@ name: first exercise
 on: push
 jobs:
   first-job:
-    runs-on: ubuntu-latests
+    runs-on: ubuntu-latest
       steps:
         - name: firts step
           run: echo "Hello, world"
   second-job:
-    runs-on: ubuntu-latets
+    runs-on: ubuntu-latest
       steps:
         - name: failed step
           run: |

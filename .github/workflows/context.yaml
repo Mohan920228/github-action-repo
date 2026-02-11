@@ -6,11 +6,14 @@ on:
           debug:
             default: false
             type: boolean
+env:
+    MY_NAME: Mohan
+    MY_AGE: 34
 jobs:
     context:
         runs-on: ubuntu-latest
         steps:
-            - name: printing meta data
+            - name: printing meta data.
               run: |
                 echo "Event name: ${{github.event_name}}"
                 echo "Ref: ${{github.ref}}"
@@ -23,3 +26,6 @@ jobs:
             - name: retrive variable
               run : |
                     echo "variable values ${{ vars.MY_VAR }}"
+            - name: workflow env varialbe
+              run: |
+                    echo "My name is ${{ env.MY_NAME}}, My age is ${{env.MY_AGE}}"

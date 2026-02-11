@@ -7,7 +7,9 @@ jobs:
           - name: checkout
             uses: actions/checkout@v4
           - name: printing folders
-            run: ls
+            run: |
+                pwd
+                ls -R
           - name: Setup node
             uses: actions/setup-node@v4
             with:

@@ -1,5 +1,12 @@
 name: custom-action
-on: push
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: 
+      - master
+      - dev
+    paths: 
+      - docs/**
 jobs:
     build:
         runs-on: ubuntu-latest

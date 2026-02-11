@@ -2,7 +2,7 @@ name: custom-action
 on:
   pull_request:
     types: 
-      - opened
+      - closed
       - synchronize
     branches: 
       - master

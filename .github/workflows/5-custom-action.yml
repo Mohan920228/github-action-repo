@@ -15,4 +15,4 @@ jobs:
           - name: install dependencies
             run: |
                 npm ci
-            working-directory: 4-custom-action/react-app
+            working-directory: ./4-custom-action/react-app

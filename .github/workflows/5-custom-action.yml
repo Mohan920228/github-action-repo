@@ -15,5 +15,5 @@ jobs:
           - name: install dependencies
             
             run: |
-                cd cd 1-exercies/4-custom-action/react-app
+                cd 1-exercies/4-custom-action/react-app
                 npm ci

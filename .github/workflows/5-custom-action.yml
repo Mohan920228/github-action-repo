@@ -15,4 +15,4 @@ jobs:
           - name: install dependencies
             run: |
                 npm ci
-            working-directory: ./4-custom-action/react-app
+            working-directory: /home/ubuntu/github-action/1-exercies/4-custom-action

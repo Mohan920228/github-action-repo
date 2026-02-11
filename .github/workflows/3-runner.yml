@@ -1,0 +1,14 @@
+name: Runners
+on: push
+jobs:
+  ubuntu-runner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo ubuntu os
+        run: echo "The runner is $RUNNER_OS"
+  windos-runner:
+    runs-on: windows-latest
+    steps:
+      - name: echo windows os
+        shell: bash
+        run: echo "The runner is $Runner_OS"

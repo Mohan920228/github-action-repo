@@ -1,0 +1,24 @@
+name: expression
+on: 
+  push:
+  workflow_dispatch: 
+    inputs:
+      debug:
+        type: boolean
+        default: false
+jobs:
+  expression:
+    runs-on: ubuntu-latest
+    steps:
+        - name: "[debug] print information"
+          if: ${{ inputs.debug }}
+          run: |
+           echo "Trigger by: ${{github.event_name}}"
+           echo "SHA: ${{github.sha}}"
+           echo "Branch: ${{github.ref}}"
+           echo "Runner OS: ${{runner.os}}"
+        - name: "[debug] print when trigger from main" 
+          if: ${{ inputs.debug && github.ref == 'ref/heads/main' }}
+          run: echo "Triggref from main"
+        - name: Greeting!
+          run: echo "Hello world!"

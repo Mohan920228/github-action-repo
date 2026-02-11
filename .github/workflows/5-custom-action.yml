@@ -19,7 +19,7 @@ jobs:
             run: |
                 pwd
                 ls -R
-          - name: Setup node
+          - name: Setup node!
             uses: actions/setup-node@v4
             with:
                 node-version: '20.x'

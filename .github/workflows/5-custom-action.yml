@@ -1,7 +1,9 @@
 name: custom-action
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: 
+      - opened
+      - synchronize
     branches: 
       - master
       - dev

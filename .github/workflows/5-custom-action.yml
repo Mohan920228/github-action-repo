@@ -1,0 +1,19 @@
+name: custom-action
+on: push
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+          - name: checkout
+            uses: actions/checkout@v4
+          - name: printing folders
+            run: |
+                pwd
+                ls -R
+          - name: Setup node
+            uses: actions/setup-node@v4
+            with:
+                node-version: '20.x'
+          - name: install dependencies..
+            working-directory: 4-custom-action/react-app
+            run: npm ci

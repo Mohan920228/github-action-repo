@@ -2,10 +2,10 @@ name: custom-action
 on:
   pull_request:
     types: 
-      - closed
+      - opened
       - synchronize
     branches: 
-      - master
+      - dev
 jobs:
     build:
         runs-on: ubuntu-latest

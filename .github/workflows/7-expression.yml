@@ -1,4 +1,5 @@
 name: expression
+run-name: Condition satisfies- ${{inputs.debug}}
 on: 
   push:
   workflow_dispatch: 

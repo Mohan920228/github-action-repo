@@ -21,6 +21,7 @@ jobs:
                 echo "Step encv var 2: ${{ env.STEP_VAR2}}"
                 echo "This is JOB varialbe: ${{env.JOB_VAR}}"
                 echo "This is a workflow var: ${{env.WORK_VAR}}"
+                echo "OVERwritten: ${{env.OVERWRITTEN}}"
             - name: Overwrite job varialbe
               env:
                   OVERWRITTEN: "I have been overwritten at step level"

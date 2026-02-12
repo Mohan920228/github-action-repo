@@ -18,7 +18,7 @@ jobs:
            echo "Branch: ${{github.ref}}"
            echo "Runner OS: ${{runner.os}}"
         - name: "[debug] print when trigger from main" 
-          if: ${{ inputs.debug && github.ref == 'ref/heads/main' }}
-          run: echo "Triggref from main"
+          if: ${{ inputs.debug && github.ref == 'ref/heads/masater' }}
+          run: echo "Triggref from master"
         - name: Greeting!
           run: echo "Hello world!"

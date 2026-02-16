@@ -74,6 +74,7 @@ jobs:
           echo "Linting..."
   build:
     runs-on: ubuntu-latest
+    needs: install-deps
     defaults:
       run:
         working-directory: caching/react-app

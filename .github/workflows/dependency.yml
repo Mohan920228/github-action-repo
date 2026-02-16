@@ -18,9 +18,9 @@ jobs:
     steps:
       - name: Testing
         run: |
-          echo "Running test...!
+          echo "Running test...!"
       - name: Failing test
-        if: ${{ inputs.pass-unit-test }}
+        if: ${{ !inputs.pass-unit-test }}
         run: |
          exit 1
   deploy-non-prod:

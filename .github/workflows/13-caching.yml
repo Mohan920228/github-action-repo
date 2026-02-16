@@ -6,6 +6,14 @@ on:
         description: whether to use cache
         type: boolean
         default: true
+      node-version:
+        description: Type of node version
+        type: choice
+        options:
+          - 18.x
+          - 20.x
+          - 21.x
+        default: 20.x
 jobs:
   build:
     runs-on: ubuntu-latest

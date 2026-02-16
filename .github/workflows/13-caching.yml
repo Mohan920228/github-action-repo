@@ -13,6 +13,9 @@ on:
           - 18.x
           - 20.x
           - 21.x
+          - 22.x
+          - 25.x
+        default: 25.x
 jobs:
   build:
     runs-on: ubuntu-latest

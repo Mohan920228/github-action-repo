@@ -9,7 +9,6 @@ on:
       target:
         type: environment
         required: true
-        default: prod
         description: Which env the workflow will target
       tags:
         type: choice
@@ -23,7 +22,7 @@ jobs:
   echo:
     runs-on: ubuntu-latest
     steps:
-      - name: build the code
+      - name: build the code.
         run: echo "Building from the tag ${{inputs.tags}}"
   deploy:
     runs-on: ubuntu-latest

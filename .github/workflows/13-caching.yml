@@ -29,7 +29,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{inputs.node-version}}
+      - name: Download cache
+        uses: actions/cache@v4
+        if: ${{inputs.use-cache}}
+        id: cache
+        with:
+          key: npm-${{hashFiles('/home/ubuntu/github-action/1-exercies/4-custom-action/caching/react-app/package-lock.json')}}
+          path: caching/react-app/node_modules
       - name: Install dependendency
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           npm ci
       - name: Testing

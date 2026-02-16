@@ -9,6 +9,7 @@ on:
       target:
         type: environment
         required: true
+        default: prod
         description: Which env the workflow will target
       tags:
         type: choice

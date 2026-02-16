@@ -24,6 +24,7 @@ jobs:
           echo "status=${{inputs.build-choice}}" >> $GITHUB_OUTPUT
           echo "output1=value1" >> $GITHUB_OUTPUT
           echo "output2=value2" >> $GITHUB_OUTPUT
+          cat $GITHUB_OUTPUT
       - name: Print output1
         run: |
           echo "Printing output1: ${{steps.build.outputs.build-output}}"

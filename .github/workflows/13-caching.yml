@@ -34,7 +34,7 @@ jobs:
         if: ${{inputs.use-cache}}
         id: cache
         with:
-          key: npm-${{hashFiles('/home/ubuntu/github-action/1-exercies/4-custom-action/caching/react-app/package-lock.json')}}
+          key: npm-${{hashFiles('caching/react-app/package-lock.json')}}
           path: caching/react-app/node_modules
       - name: Install dependendency
         if: steps.cache.outputs.cache-hit != 'true'

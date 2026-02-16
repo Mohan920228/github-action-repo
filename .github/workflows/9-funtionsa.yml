@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: sleep
-        run: slee 20
+        run: 8uslee 20
       - name: I will fail
         run: | 
             exit 1

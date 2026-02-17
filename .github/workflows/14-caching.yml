@@ -1,0 +1,43 @@
+name: 14-caching
+on:
+  workflow_dispatch:
+    inputs:
+      cache-deps:
+        description: Whether or not to use cache
+        type: boolean
+        default: true
+      node-version:
+        description: node version selection
+        type: choice
+        options:
+          - 20.x
+          - 21.x
+          - 22.x
+          - 23.x
+          - 24.x
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 1-caching/react-app
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{inputs.node-version}}
+      - name: Install dependencies
+        run: |
+          npm ci
+      - name: Testing
+        run: |
+          npm run test
+      - name: Build
+        run: |
+          npm run build
+      - name: Deploy to non-prod
+        run: |
+          echo "Deploy to non-prod"

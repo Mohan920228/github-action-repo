@@ -30,7 +30,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{inputs.node-version}}
+      - name: Download cache deps
+        uses: actions/cache@v3
+        if: ${{inputs.cache-deps}}
+        id: cache
+        with:
+          key: npm-${{hashFiles('1-caching/react-app/packate-lock.json')}}
+          path: 1-caching/react-app/node_modules
       - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           npm ci
       - name: Testing

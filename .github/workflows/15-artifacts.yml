@@ -1,0 +1,48 @@
+name: 15-Working with artifacts
+on:
+  workflow_dispatch:
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 2-artifacts/react-app
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: setup-node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "25.x"
+      - name: Download cache dependencies
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: 2-artifacts/react-app/node_modules
+          key: npm-${{hashFiles('2-artifacts/react-app/package-lock.json')}}
+      - name: install dependencies
+        if: steps.cache.outputs.cache-hit != true
+        run: |
+          npm ci
+      - name: Unit test
+        run: |
+          npm run test
+      - name: Build code
+        run: npm run build
+      - name: Upload Build files
+        uses: actions/upload-artifact@v3
+        with:
+          name: app
+          path: 2-artifacts/react-app/build
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: app
+          path: build
+      - name: Show folder structure
+        run: ls -R

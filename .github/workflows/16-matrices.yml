@@ -32,3 +32,17 @@ jobs:
       - name: Upload test results
         run: |
           echo "Uploading test results"
+  dummy-job:
+    name: ${{matrix.color}}-${{matrix.shape}}-${{matrix.size}}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        color: [red, green]
+        shape: [circle, square]
+        size: [small, large]
+        include:
+          - color: yellow
+            shape: triangle
+    steps:
+      - name: Dummy step
+        run: echo "${{matrix.color}}-${{matrix.shape}}-${{matrix.size}}"

@@ -17,10 +17,24 @@ jobs:
       - name: E2E testing
         run: |
           echo "Running E2E testing"
-  deploy-prod:
+  deploy-prod-frontend:
     runs-on: ubuntu-latest
     environment: prod
     needs: [deploy-staging, E2E_testing]
     steps:
       - name: deploy production
-        run: echo "Deploying prod"
+        run: echo "Deploying prod frontend"
+  deploy-prod-backend1:
+    runs-on: ubuntu-latest
+    environment: prod
+    needs: [deploy-staging, E2E_testing]
+    steps:
+      - name: deploy production
+        run: echo "Deploying prod backend1"
+  deploy-prod-backend2:
+    runs-on: ubuntu-latest
+    environment: prod
+    needs: [deploy-staging, E2E_testing]
+    steps:
+      - name: deploy production
+        run: echo "Deploying prod backend2"

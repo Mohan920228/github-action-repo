@@ -1,6 +1,15 @@
 name: 18-composit action
+run-name: target env is ${{inputs.target-env}}
 on:
   workflow_dispatch:
+    inputs:
+      target-env:
+        default: "dev"
+        description: "which env to target dev or prod"
+        type: choice
+        options:
+          - dev
+          - prod
 
 jobs:
   build:
@@ -15,6 +24,7 @@ jobs:
         with:
           node-version: 23.x
           working-directory: ${{env.path}}
+          target-env: ${{inputs.target-env}}
       - name: Testing
         run: npm run test
         working-directory: ${{env.path}}

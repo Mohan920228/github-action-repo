@@ -5,9 +5,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      path: 3-custom-action/react-app
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
       - name: setup node and npm deps
-        uses: ./.github/actions/composite-action-deps
+        uses: ./.github/actions/conposite-action-deps
         with:
           node-version: 23.x
-          working-directory: "."
+          working-directory: ${{env.path}}
+      - name: Testing
+        run: npm run test
+        working-directory: ${{env.path}}
+      - name: Build
+        run: npm run build
+        working-directory: ${{env.path}}

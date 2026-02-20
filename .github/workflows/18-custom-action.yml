@@ -1,0 +1,13 @@
+name: 18-composit action
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup node and npm deps
+        uses: ./.github/actions/composite-action-deps
+        with:
+          node-version: 23.x
+          working-directory: "."

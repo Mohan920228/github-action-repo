@@ -10,7 +10,10 @@ inputs:
     description: working directory of application
     required: false
     default: '.'
-
+  target-env:
+    description: dev or prod
+    default: dev
+    required: false
 
 runs:
   using: composite
@@ -26,7 +29,7 @@ runs:
         path: ${{inputs.working-directory}}/node_modules
         key: npm-${{hashFiles(format('{0}/{1}',inputs.working-directory,'package-lock.json'))}}
     - name: Install dependencies
-      if: steps.cache.inputs.cache-hit != 'true'
-      run: npm ci
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: ${{ inputs.target-env == 'dev' && 'npm ci' || 'npm ci --omit=dev' }}
       shell: bash
       working-directory: ${{inputs.working-directory}}

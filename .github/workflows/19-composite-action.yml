@@ -10,6 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v5
+
       - name: setup node and dependencies
         uses: ./.github/actions/composit-cache-deps
         with:

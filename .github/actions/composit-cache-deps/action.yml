@@ -24,7 +24,7 @@ runs:
       id: cache
       with:
         path: ${{inputs.working-directory}}/node_modules
-        key: npm-${{hashFiles('${{inputs.working-directory}}/package-lock.json')}}
+        key: npm-${{hashFiles(format('{0}/{1}',inputs.working-directory,'package-lock.json'))}}
     - name: Install dependencies
       if: steps.cache.inputs.cache-hit != 'true'
       run: npm ci

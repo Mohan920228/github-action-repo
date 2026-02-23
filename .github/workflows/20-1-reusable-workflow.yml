@@ -31,4 +31,4 @@ jobs:
         id: deploy
         run: |
           echo "Deploy the artifacts"
-          echo "url=https://www.google.com"
+          echo "url=https://www.google.com" >> "$GITHUB_OUTPUT"
